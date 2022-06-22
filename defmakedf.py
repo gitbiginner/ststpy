@@ -13,7 +13,7 @@ def mdfmake(x,y,m):
     stcode = x
     dt_now = datetime.datetime.now()
     ly = dt_now.year
-    lm = dt_now.month
+    lm = dt_now.month-1
     ld = dt_now.day
     
     stock = web.DataReader(stcode,
