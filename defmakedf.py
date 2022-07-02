@@ -2,24 +2,22 @@
 defmakedf.py
 '''
 
-def mdfmake(x,y,m):
+def mdfmake(x, y, m):
     
     import numpy as np
     import pandas as pd
-    import pandas_datareader.data as web
+    import pandas_datareader as data 
     import datetime as datetime
 
 
     stcode = x
     dt_now = datetime.datetime.now()
     ly = dt_now.year
-    lm = dt_now.month-1
+    lm = dt_now.month
     ld = dt_now.day
     
-    stock = web.DataReader(stcode,
-                           'stooq',
-                           start=datetime.datetime(y,m,1),
-                           end=datetime.datetime(ly,lm,31))
+    stock = data.DataReader(stcode,'stooq',start=datetime.date(y, m, 1),end=datetime.date(ly,lm,ld))
+    #datetime.datetime(ly,lm,ld))
 
     stock = stock.sort_values(by='Date')
 
@@ -56,4 +54,5 @@ def mdfmake(x,y,m):
     
 #madedf = mdfmake("1306.JP",2009)
 #madedf
+
 

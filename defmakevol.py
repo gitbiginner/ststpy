@@ -16,7 +16,7 @@ def mdfmake(x, y, m):
     lm = dt_now.month
     ld = dt_now.day
     
-    stock = data.DataReader(stcode,'stooq',start=str(y)+'-'+str(m)+'-'+'01',end=datetime.date(ly,lm,ld))
+    stock = data.DataReader(stcode,'stooq',start=datetime.date(y, m, 1),end=datetime.date(ly,lm,ld))
     #datetime.datetime(ly,lm,ld))
 
     stock = stock.sort_values(by='Date')
